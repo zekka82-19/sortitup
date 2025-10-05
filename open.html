@@ -1,5 +1,15 @@
 <!doctype html><meta charset="utf-8">
+<title>Opening…</title>
 <script>
-  location = "sortitup://open";
-  // если приложение не установлено, откроется ошибка браузера — и это ок
+(function(){
+  var qs = window.location.search || '';
+  var target = 'sortitup://open' + qs;   // сохраняем ВСЮ query
+  location.replace(target);
+  setTimeout(function(){
+    document.body.innerHTML =
+      '<p>Если приложение не открылось, установите игру и вернитесь по ссылке:</p>' +
+      '<p><a href="https://play.google.com/store/apps/details?id=com.onenerdproduction.sortitup">Установить из Google Play</a></p>' +
+      '<pre>' + target + '</pre>';
+  }, 1200);
+})();
 </script>
